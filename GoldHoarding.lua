@@ -81,9 +81,13 @@ function CalculateAmountCheck() --Auto Calculate on Info Frame
 	vGH_InfoFrame.Msg:SetText("")
 	amountToKeep = vGH_AmtToGoldTBox:GetNumber()*10000
 	amountToSend = GetMoney()-amountToKeep-GetSendMailPrice()
-	
+
+	if (UnitName("player") == vGH_AmtToSndTBox:GetText()) then
+		vGH_InfoFrame.Msg:SetText("Greed Much? Can`t send to yourself!")
+		return
+	end
 	if (vGH_AmtToSndTBox:GetText() == nil) or (vGH_AmtToSndTBox:GetText() == "") or (vGH_AmtToSndTBox:GetText() == "No Name") then
-		vGH_InfoFrame.Msg:SetText("Name cannot be blank or 'No Name'")
+		vGH_InfoFrame.Msg:SetText("Name cannot be blank or `No Name`")
 		return
 	end
 	if (amountToKeep == GetMoney()) then
@@ -95,12 +99,12 @@ function CalculateAmountCheck() --Auto Calculate on Info Frame
 		return
 	end
 	if (vGH_AmtToGoldTBox:GetNumber() == 0) then
-		vGH_InfoFrame.Msg:SetText("|cff00ccffSending "..vGH_AmtToSndTBox:GetText().." ALL: |r"..GetCoinTextureString(amountToSend,10))
+		vGH_InfoFrame.Msg:SetText("|cff00ccffSend "..vGH_AmtToSndTBox:GetText().." ALL: |r"..GetCoinTextureString(amountToSend,10))
 		vGH_SndBtn:Show()
 		return
 	end
 	if (amountToSend > 0) then
-		vGH_InfoFrame.Msg:SetText("|cff00ccffSending "..vGH_AmtToSndTBox:GetText()..": |r"..GetCoinTextureString(amountToSend,10))
+		vGH_InfoFrame.Msg:SetText("|cff00ccffSend "..vGH_AmtToSndTBox:GetText()..": |r"..GetCoinTextureString(amountToSend,10))
 		vGH_SndBtn:Show()
 		return
 	end
@@ -114,7 +118,7 @@ function vGH_SndBtn_OnClick()
 	SetSendMailMoney(amountToSend)
 	SendMail(SendTo,"Auto - Gold Hoarding","")
 	if vGH_SetVerbCB:GetChecked() == true then
-		DEFAULT_CHAT_FRAME:AddMessage("|cff00ccffSent\: "..vGH_AmtToSndTBox:GetText().." |r"..GetCoinTextureString(amountToSend))
+		DEFAULT_CHAT_FRAME:AddMessage("|cff00ccffSent - "..vGH_AmtToSndTBox:GetText().." |r"..GetCoinTextureString(amountToSend))
 	end
 end
 
@@ -163,7 +167,6 @@ local vGH_AmtToFrame = CreateFrame("Frame", "vGH_AmtToFrame", vGH_MainFrame, Bac
 	vGH_AmtToFrame:SetSize(295,120)
 	vGH_AmtToFrame:ClearAllPoints()
 	vGH_AmtToFrame:SetPoint("TOP", vGH_TitleMFrame, 0, 0-vGH_TitleMFrame:GetHeight()+4)
-	
 	local vGH_AmtToGoldHdr = vGH_AmtToFrame:CreateFontString("vGH_AmtToGoldHdr")
 		vGH_AmtToGoldHdr:SetFont("Fonts\\FRIZQT__.TTF", 12)
 		vGH_AmtToGoldHdr:SetPoint("TOP", vGH_AmtToFrame, 0, -10)
@@ -316,7 +319,7 @@ local vGH_SetSnGoFrame = CreateFrame("Frame", "vGH_SetSnGoFrame", vGH_SetFrame, 
 			vGH_SetGoldTBox:SetScript("OnTextChanged", function() SettingChanges(4) end)
 			local vGH_SetGoldIcon = vGH_SetSnGoFrame:CreateTexture(nil, "ARTWORK")
 				vGH_SetGoldIcon:SetSize(16,16)
-				vGH_SetGoldIcon:SetPoint("RIGHT", vGH_SetSnGoFrame, -20, 2)
+				vGH_SetGoldIcon:SetPoint("RIGHT", vGH_SetSnGoFrame, -20, 10)
 				vGH_SetGoldIcon:SetTexture("Interface\\MoneyFrame\\UI-GoldIcon")
 				
 	local vGH_SetOpenMailS = vGH_SetSnGoFrame:CreateFontString("vGH_SetOpenMailS")
