@@ -1,0 +1,7 @@
+## Author: Vandiel
+## Interface: 90001
+## Notes: Hoarding Gold (Original Author: Olivier Pelletier)
+## Title: .|TInterface\MoneyFrame\UI-GoldIcon:0|t|cff00ccff Gold Hoarding |r|TInterface\MoneyFrame\UI-GoldIcon:0|t
+## Version: 2.0
+## SavedVariables: GoldHoarding
+GoldHoarding.lua
