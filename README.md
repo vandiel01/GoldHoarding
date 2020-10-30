@@ -1,5 +1,5 @@
 # Gold Hoarding
-Gold Hoarding is a World of Warcraft addon designed easy 'send' to Gold Hoarder from other toons.  Can set all toons to hold specific amount of gold and send excess to your Gold Hoarder.
+'Gold Hoarding' is a World of Warcraft addon designed to send gold from your toons from the Mailbox.  Can set toons to hold specific amount of gold and send excess to your 'Gold Hoarder'.
 
 ## Features
 - Initial
