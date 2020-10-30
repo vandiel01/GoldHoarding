@@ -19,8 +19,8 @@ You can also contribute to the addon by [Donate] https://paypal.me/Vandiel01
 
 ## Image Samples
 * Normal Frame
-* [GHSample1](https://prnt.sc/va4wht)
+* ![GHSample1](Images/Sample1.png)
 * Normal Frame w/ Setting
-* [GHSample2](https://prnt.sc/va4toh)
+* ![GHSample2](Images/Sample2.png)
 * CHAT_MSG Verbose when Sent
-* [GHSample3](https://prnt.sc/va4twt)
+* ![GHSample3](Images/Sample3.png)
