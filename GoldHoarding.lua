@@ -82,9 +82,17 @@ function CalculateAmountCheck() --Auto Calculate on Info Frame
 	amountToKeep = vGH_AmtToGoldTBox:GetNumber()*10000
 	amountToSend = GetMoney()-amountToKeep-GetSendMailPrice()
 
-	if (UnitName("player") == vGH_AmtToSndTBox:GetText()) then
-		vGH_InfoFrame.Msg:SetText("Greed Much? Can`t send to yourself!")
-		return
+	if strfind(vGH_AmtToSndTBox:GetText(),"-") == nil then
+		if (UnitName("player") == vGH_AmtToSndTBox:GetText()) then
+			vGH_InfoFrame.Msg:SetText("Greed Much? Can`t send to yourself!")
+			return
+		end
+	else
+		TwoName = UnitName("player").."-"..GetRealmName()
+		if (TwoName == vGH_AmtToSndTBox:GetText()) then
+			vGH_InfoFrame.Msg:SetText("Greed Much? Can`t send to yourself!")
+			return
+		end
 	end
 	if (vGH_AmtToSndTBox:GetText() == nil) or (vGH_AmtToSndTBox:GetText() == "") or (vGH_AmtToSndTBox:GetText() == "No Name") then
 		vGH_InfoFrame.Msg:SetText("Name cannot be blank or `No Name`")
