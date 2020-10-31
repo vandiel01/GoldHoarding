@@ -64,9 +64,9 @@ local vGH_Tooltips = function(arg, frame)
 	GameTooltip:SetOwner(frame, "ANCHOR_RIGHT")
 	if arg == 1 then msg = "This includes 30c when sending gold to your banker." end
 	if arg == 2 then msg = "To make your setting permanent, click here to make changes." end
-	if arg == 3 then msg = "Put in a permanent name." end
+	if arg == 3 then msg = "Put in a permanent name.\n\n(Can include server name if connected)" end
 	if arg == 4 then msg = "Put in a permanent gold amount." end
-	if arg == 5 then msg = "To send another person, change here temporarily.\n\nThis variable is not saved!" end
+	if arg == 5 then msg = "To send another person, change here temporarily.\n\n\(Can include server name if connected\)\n\nThis variable is not saved!" end
 	if arg == 6 then msg = "To send another gold amount, change here temporarily.\n\nThis variable is not saved!" end
 	if arg == 7 then msg = "Reset Name/Gold back to default." end
 	if arg == 8 then msg = "Toggle "..vGH_Title end
@@ -194,12 +194,12 @@ local vGH_AmtToFrame = CreateFrame("Frame", "vGH_AmtToFrame", vGH_MainFrame, Bac
 		
 	local vGH_AmtToSndHdr = vGH_AmtToFrame:CreateFontString("vGH_AmtToSndHdr")
 		vGH_AmtToSndHdr:SetFont("Fonts\\FRIZQT__.TTF", 12)
-		vGH_AmtToSndHdr:SetPoint("TOP", vGH_AmtToFrame, -55, -87)
-		vGH_AmtToSndHdr:SetText("Name Sending To:")
+		vGH_AmtToSndHdr:SetPoint("TOP", vGH_AmtToFrame, -45, -87)
+		vGH_AmtToSndHdr:SetText("Send To:")
 	local vGH_AmtToSndTBox = CreateFrame("EditBox", "vGH_AmtToSndTBox", vGH_AmtToFrame, "InputBoxTemplate")
 		vGH_AmtToSndTBox:SetText("")
-		vGH_AmtToSndTBox:SetPoint("TOP", vGH_AmtToFrame, 55, -83)
-		vGH_AmtToSndTBox:SetSize(80,20)
+		vGH_AmtToSndTBox:SetPoint("TOP", vGH_AmtToFrame, 60, -83)
+		vGH_AmtToSndTBox:SetSize(140,20)
 		vGH_AmtToSndTBox:SetMaxLetters(100)
 		vGH_AmtToSndTBox:SetAutoFocus(false)
 		vGH_AmtToSndTBox:SetMultiLine(false)
@@ -288,12 +288,12 @@ local vGH_SetSnGoFrame = CreateFrame("Frame", "vGH_SetSnGoFrame", vGH_SetFrame, 
 	
 	local vGH_SetSndStr = vGH_SetSnGoFrame:CreateFontString("vGH_SetSndStr")
 		vGH_SetSndStr:SetFont("Fonts\\FRIZQT__.TTF", 12)
-		vGH_SetSndStr:SetPoint("TOP", vGH_SetSnGoFrame, -50, -8)
-		vGH_SetSndStr:SetText(" Default Sending Name:")
+		vGH_SetSndStr:SetPoint("TOP", vGH_SetSnGoFrame, -70, -8)
+		vGH_SetSndStr:SetText("Default Send To:")
 		local vGH_SetSndTBox = CreateFrame("EditBox", "vGH_SetSndTBox", vGH_SetSnGoFrame, "InputBoxTemplate")
 			vGH_SetSndTBox:SetText("")
-			vGH_SetSndTBox:SetPoint("TOP", vGH_SetSnGoFrame, 70, -5)
-			vGH_SetSndTBox:SetSize(80,20)
+			vGH_SetSndTBox:SetPoint("TOP", vGH_SetSnGoFrame, 60, -5)
+			vGH_SetSndTBox:SetSize(140,20)
 			vGH_SetSndTBox:SetMaxLetters(100)
 			vGH_SetSndTBox:SetAutoFocus(false)
 			vGH_SetSndTBox:SetMultiLine(false)
