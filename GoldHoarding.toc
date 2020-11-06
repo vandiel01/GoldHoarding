@@ -1,7 +1,7 @@
 ## Author: Vandiel
 ## Interface: 90001
 ## Notes: Gold Hoarding
-## Title: .|TInterface\MoneyFrame\UI-GoldIcon:0|t|cff00ccff Gold Hoarding |r|TInterface\MoneyFrame\UI-GoldIcon:0|t
-## Version: 2.0
+## Title: .|TInterface\MoneyFrame\UI-GoldIcon:0|t Gold Hoarding
+## Version: 2.1
 ## SavedVariables: GoldHoarding
 GoldHoarding.lua

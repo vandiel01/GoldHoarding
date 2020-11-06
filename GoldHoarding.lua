@@ -1,6 +1,5 @@
-﻿local vGH_GetVers = GetAddOnMetadata("GoldHoarding", "Version") --Grab Version
-local vGH_Vers = "|cffffffff "..vGH_GetVers.."|r"	-- Version Number
-local vGH_Title = "|c"..RAID_CLASS_COLORS[select(2,UnitClass("player"))].colorStr.."Gold Hoarding|r"  -- EGTB Title
+﻿local vGH_Title = "|c"..RAID_CLASS_COLORS[select(2,UnitClass("player"))].colorStr..strsub(GetAddOnMetadata("GoldHoarding", "Title"),2).."|r"  -- EGTB Title
+local vGH_Vers = "|cffffffff"..GetAddOnMetadata("GoldHoarding", "Version").."|r"	-- Version Number
 local ShowEGTB = true
 Send = "No Name"
 Amount = 100
@@ -122,7 +121,7 @@ function vGH_SndBtn_OnClick()
 	amountToKeep = vGH_AmtToGoldTBox:GetNumber()*10000
 	amountToSend = GetMoney()-amountToKeep-GetSendMailPrice()
 	SendTo = vGH_AmtToSndTBox:GetText()
-	MailFrameTab2:Click() --???
+	--MailFrameTab2:Click() --Not Required
 	SetSendMailMoney(amountToSend)
 	SendMail(SendTo,"Auto - Gold Hoarding","")
 	if vGH_SetVerbCB:GetChecked() == true then
@@ -370,7 +369,7 @@ vGH_OnUpdate:SetScript("OnEvent", function(self, event, ...)
 	if event == "PLAYER_LOGIN" then
 		vGH_MainFrame:Hide()
 		vGH_SetFrame:Hide()
-		DEFAULT_CHAT_FRAME:AddMessage("Loaded: "..vGH_Title..vGH_Vers)
+		DEFAULT_CHAT_FRAME:AddMessage("Loaded: "..vGH_Title.." v"..vGH_Vers)
 	end
 	if event == "PLAYER_MONEY" then
 		if (MailFrame:IsShown()) then
