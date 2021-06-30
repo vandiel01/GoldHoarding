@@ -1,5 +1,5 @@
 ## Author: Vandiel
-## Interface: 90002
+## Interface: 90100
 ## Notes: Gold Hoarding
 ## Title: .|TInterface\MoneyFrame\UI-GoldIcon:0|t Gold Hoarding
 ## Version: 2.1
