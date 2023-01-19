@@ -383,6 +383,28 @@ vGH_OnUpdate:SetScript("OnEvent", function(self, event, ...)
 		end
 	end
 	if event == "MAIL_SHOW" then
+	
+		if IsShiftKeyDown() then return end --Do Not Send Anything
+	
+	--	SendMailNameEditBox:SetText("Vandiel-Korgath")
+	--	if (SendMailNameEditBox:GetText() ~= UnitName("player").."-"..GetRealmName()) then
+	--		local bag, slot
+	--		C_Timer.After(.5, function()
+	--			local _, itemLink = GetItemInfo(163036)
+	--			for bag = 0, NUM_BAG_SLOTS do
+	--				for slot = 1, C_Container.GetContainerNumSlots(bag) do
+	--					if C_Container.GetContainerItemLink(bag, slot) == itemLink then
+	--						C_Container.PickupContainerItem(bag, slot)
+	--						ClickSendMailItemButton()
+	--						C_Timer.After(.2, function() SendMail("Vandiel-Korgath", "Polished Pet Charms") end)
+	--						break
+	--					end
+	--				end
+	--			if bag and slot then break end
+	--			end
+	--		end)
+	--	end
+
 		if GoldHoarding == nil then
 			GoldHoarding = {Send,Amount,Option,Verbose}
 		else
